@@ -17,6 +17,7 @@
 - [Introduction](#introduction)
 - [Global Rules](#Global-Rules)
 - [Mandatory Part](#Mandatory-Part)
+- [Bonus Part](#Bonus-Part)
 - [Usage](#Usage)
 - [Bonus](#bonus)
 - [Contributing](#contributing)
