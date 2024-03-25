@@ -71,6 +71,12 @@ Replace timestamp_in_ms with the current timestamp in milliseconds and X with th
 
 ```
 
+## Usage
+
+```bash
+./philo 5 800 200 200 [5]
+```
+
 ## Contributing
 
 Contributions are welcome! If you have improvements or additional features to suggest, please open an issue or submit a pull request. Follow the Contribution Guidelines for more details.
