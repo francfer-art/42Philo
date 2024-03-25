@@ -74,6 +74,8 @@ Replace timestamp_in_ms with the current timestamp in milliseconds and X with th
 
 ## Mandatory Part
 
+```
+
 The specific rules for the mandatory part are:
 
 · Each philosopher should be a thread.
@@ -83,6 +85,8 @@ The specific rules for the mandatory part are:
   If there is only one philosopher, there should be only one fork on the table.
 · To prevent philosophers from duplicating forks, you should protect the forks state
   with a mutex for each of them.
+
+```
 
 ## Usage
 
