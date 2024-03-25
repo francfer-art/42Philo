@@ -15,12 +15,8 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Features](#features)
 - [Global Rules](#Global-Rules)
 - [Usage](#Usage)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Avaliable Parameters](#avaliable-parameters)
 - [Bonus](#bonus)
 - [Contributing](#contributing)
 - [License](#license)
@@ -75,3 +71,9 @@ Replace timestamp_in_ms with the current timestamp in milliseconds and X with th
 
 ```
 
+## Contributing
+
+Contributions are welcome! If you have improvements or additional features to suggest, please open an issue or submit a pull request. Follow the Contribution Guidelines for more details.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
