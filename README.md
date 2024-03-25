@@ -91,17 +91,6 @@ The specific rules for the mandatory part are:
 
 ```
 
-## Usage
-
-```
-
-git clone https://github.com/francfer-art/42Philo.git
-cd 42Philo/philo
-make
-./philo 5 800 200 200 [5]
-
-```
-
 ## Bonus Part
 
 ```
@@ -117,6 +106,18 @@ The specific rules for the bonus part are:
 
 · Each philosopher should be a process. But the main process should not be a
   philosopher.
+
+```
+
+## Usage
+
+```
+
+git clone https://github.com/francfer-art/42Philo.git
+cd 42Philo/philo or cd 42Philo/philo_bonus
+make
+./philo 5 800 200 200 [5]
+./philo_bonnus 5 800 200 200 [5]
 
 ```
 
