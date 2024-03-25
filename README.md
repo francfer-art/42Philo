@@ -114,7 +114,7 @@ The specific rules for the bonus part are:
 · They have no states in memory but the number of available forks is represented by
   a semaphore.
 
-· • Each philosopher should be a process. But the main process should not be a
+· Each philosopher should be a process. But the main process should not be a
   philosopher.
 
 ```
