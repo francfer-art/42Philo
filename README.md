@@ -74,7 +74,11 @@ Replace timestamp_in_ms with the current timestamp in milliseconds and X with th
 ## Usage
 
 ```bash
+git clone https://github.com/francfer-art/42Philo.git
+cd 42Philo/philo
+make
 ./philo 5 800 200 200 [5]
+
 ```
 
 ## Contributing
