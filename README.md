@@ -31,6 +31,8 @@ In this simulation, philosophers sit around a round table with a large bowl of s
 
 ## Global Rules
 
+""" 
+
 You have to write a program for the mandatory part and another one for the bonus part (if you decide to do the bonus part). They both have to comply with the following rules:
 
 · Global variables are forbidden!
@@ -53,3 +55,5 @@ Replace timestamp_in_ms with the current timestamp in milliseconds and X with th
 · A displayed state message should not be mixed up with another message.
 · A message announcing a philosopher died should be displayed no more than 10ms after the actual death of the philosopher.
 · Again, philosophers should avoid dying!
+
+"""
