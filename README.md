@@ -73,7 +73,7 @@ Replace timestamp_in_ms with the current timestamp in milliseconds and X with th
 
 ## Usage
 
-```c
+```
 
 git clone https://github.com/francfer-art/42Philo.git
 cd 42Philo/philo
