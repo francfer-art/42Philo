@@ -16,6 +16,7 @@
 
 - [Introduction](#introduction)
 - [Global Rules](#Global-Rules)
+- [Mandatory Part](#Mandatory-Part)
 - [Usage](#Usage)
 - [Bonus](#bonus)
 - [Contributing](#contributing)
@@ -70,6 +71,18 @@ Replace timestamp_in_ms with the current timestamp in milliseconds and X with th
 · Again, philosophers should avoid dying!
 
 ```
+
+## Mandatory Part
+
+The specific rules for the mandatory part are:
+
+· Each philosopher should be a thread.
+· There is one fork between each pair of philosophers. Therefore, if there are several
+  philosophers, each philosopher has a fork on their left side and a fork on their right
+  side. 
+  If there is only one philosopher, there should be only one fork on the table.
+· To prevent philosophers from duplicating forks, you should protect the forks state
+  with a mutex for each of them.
 
 ## Usage
 
