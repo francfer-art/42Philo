@@ -56,4 +56,5 @@ Replace timestamp_in_ms with the current timestamp in milliseconds and X with th
 · A message announcing a philosopher died should be displayed no more than 10ms after the actual death of the philosopher.
 · Again, philosophers should avoid dying!
 
-´´´
+```
+
