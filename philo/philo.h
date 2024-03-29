@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:26:27 by francfer          #+#    #+#             */
-/*   Updated: 2024/03/25 15:19:17 by francfer         ###   ########.fr       */
+/*   Updated: 2024/03/29 20:52:32 by francfer         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -19,6 +19,18 @@
 # include <stdio.h>
 # include <limits.h>
 # include <sys/time.h>
+# include <errno.h>
+
+typedef enum s_code
+{
+	LOCK,
+	UNLOCK,
+	INIT,
+	DESTROY,
+	CREATE,
+	JOIN,
+	DETACH
+}	t_code;
 
 typedef struct s_fork t_fork;
 typedef struct s_philo t_philo;
@@ -63,5 +75,10 @@ long		ft_atol(const char *str);
 void		parsing_input(t_table *table, char **argv);
 void		ft_error(char	*error_message);
 
+void    *safe_malloc(size_t bytes);
+
+void    data_init(t_table *table);
+void    safe_mutex_handler(pthread_mutex_t *mutex, t_code code);
+void    safe_thread_handler(pthread_t *thread, void *(*foo)(void *), void *data, t_code code);
 
 #endif
