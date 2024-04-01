@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:26:27 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/01 21:29:53 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/01 21:30:31 by francfer         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -120,4 +120,5 @@ void					wait_all_threads(t_table *table);
 void					clean(t_table *table);
 
 // Debbugear para encontar dónde no estoy inicializando!
+//Otro test!
 #endif
