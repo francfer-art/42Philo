@@ -6,7 +6,7 @@
 #    By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 12:48:46 by francfer          #+#    #+#              #
-#    Updated: 2024/03/29 12:41:23 by francfer         ###   ########.fr        #
+#    Updated: 2024/03/31 18:25:37 by francfer         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -19,7 +19,8 @@ GREEN   := \033[0;32m
 PINK    := \033[1;35m
 NC      := \033[0m
 
-FILES   = main.c parser.c utils.c utils1.c init.c safe_functions.c
+FILES   = main.c parser.c utils.c utils1.c init.c safe_functions.c dinner.c \
+get_set.c synchro_utils.c write.c
 OBJS    = $(FILES:.c=.o)
 
 all: $(NAME)
