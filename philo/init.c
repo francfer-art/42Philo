@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 12:37:10 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/02 16:25:17 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:26:37 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	assign_forks(t_philo *philo, t_fork *forks, int i)
 {
-	philo->second_fork = &forks[i];
 	philo->first_fork = &forks[(i + 1) % philo->table->philo_numbers];
+	philo->second_fork = &forks[i];
 	if (philo->id % 2 == 0)
 	{
 		philo->first_fork = &forks[i];
@@ -50,7 +50,8 @@ void	data_init(t_table *table)
 	table->end_simulation = 0;
 	table->all_threads_ready = 0;
 	table->philos = safe_malloc(sizeof(t_philo) * table->philo_numbers);
-	safe_mutex_handler(&table->table_mutex, INIT);	
+	table->threads_number_running = 0;
+	safe_mutex_handler(&table->table_mutex, INIT);
 	safe_mutex_handler(&table->write_mutex, INIT);
 	table->forks = safe_malloc(sizeof(t_fork) * table->philo_numbers);
 	while (i < table->philo_numbers)

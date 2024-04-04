@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 13:08:51 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/02 16:24:26 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/04 11:20:31 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 void	write_status(t_state code, t_philo *philo)
 {
-    long    elapsed;
+	long	elapsed;
 
-    elapsed = get_time(MILISECOND) - philo->table->start_simulation;
-    safe_mutex_handler(&philo->table->write_mutex, LOCK);
-    if ((code == TAKE_FIRST_FORK || code == TAKE_SECOND_FORK) && (!simulation_finished(philo->table)))
-        printf("%ld" "  %d has taken a fork\n", elapsed, philo->id);
-    else if (code == EATING && !simulation_finished(philo->table))
-        printf("%ld" "  %d is eating\n", elapsed, philo->id);
-    else if (code == SLEEPING && !simulation_finished(philo->table))
-        printf("%ld" "  %d is sleeping\n", elapsed, philo->id);
-    else if (code == THINKING && !simulation_finished(philo->table))
-        printf("%ld" "  %d is thinking\n", elapsed, philo->id);
-    else if (code == DIED)
-        printf("%ld" "  %d died\n", elapsed, philo->id);
-    safe_mutex_handler(&philo->table->write_mutex, UNLOCK);
+	elapsed = get_time(MILISECOND) - philo->table->start_simulation;
+	safe_mutex_handler(&philo->table->write_mutex, LOCK);
+	if ((code == TAKE_FIRST_FORK || code == TAKE_SECOND_FORK)
+		&& (!simulation_finished(philo->table)))
+		printf("%ld" "  %d has taken a fork\n", elapsed, philo->id);
+	else if (code == EATING && !simulation_finished(philo->table))
+		printf("%ld" "  %d is eating\n", elapsed, philo->id);
+	else if (code == SLEEPING && !simulation_finished(philo->table))
+		printf("%ld" "  %d is sleeping\n", elapsed, philo->id);
+	else if (code == THINKING && !simulation_finished(philo->table))
+		printf("%ld" "  %d is thinking\n", elapsed, philo->id);
+	else if (code == DIED)
+		printf("%ld" "  %d died\n", elapsed, philo->id);
+	safe_mutex_handler(&philo->table->write_mutex, UNLOCK);
 }

@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 12:40:25 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/01 13:01:09 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/04 11:17:35 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ static void	handle_mutex_error(int status, t_code code)
 	else if (status == EINVAL && (code == INIT))
 		ft_error("The value specified by attr is invalid!");
 	else if (status == EDEADLK)
-		ft_error("A deadlock would occur if the thread blocked waiting for mutex!");
+		ft_error("Deadlock would occur if thread blocked waiting for mutex!");
 	else if (status == EPERM)
 		ft_error("The current thread does not hold a lock on mutex!");
 	else if (status == ENOMEM)
-		ft_error("The process cannot allocate enough memory to create another mutex!");
+		ft_error("The process cannot allocate enough memory to create mutex!");
 	else if (status == EBUSY)
 		ft_error("Mutex is locked!");
 }

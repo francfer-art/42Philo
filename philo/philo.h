@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:26:27 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/01 21:32:34 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:37:06 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -69,6 +69,8 @@ typedef struct s_table
 	long				start_simulation;
 	int					end_simulation;
 	int					all_threads_ready;
+	long				threads_number_running;
+	pthread_t			monitor;
 	pthread_mutex_t		table_mutex;
 	pthread_mutex_t		write_mutex;
 	t_philo				*philos;
@@ -88,23 +90,32 @@ typedef struct s_philo
 	t_table				*table;
 }						t_philo;
 
+//utils.c
 int						is_sign(char c);
 int						is_digit(char c);
 int						arg_is_number(char *str);
 int						is_correct_input(int args, char **argv);
 long					ft_atol(const char *str);
+
+//parser.c
 void					parsing_input(t_table *table, char **argv);
 
+//utils1.c
 void					ft_error(char *error_message);
 long					get_time(t_time_code time);
 void					precise_usleep(long time, t_table *table);
+void					clean(t_table *table);
 
-void					*safe_malloc(size_t bytes);
+//init.c
 void					data_init(t_table *table);
+
+//safe_functions.c
+void					*safe_malloc(size_t bytes);
 void					safe_mutex_handler(pthread_mutex_t *mutex, t_code code);
 void					safe_thread_handler(pthread_t *thread,
 							void *(*foo)(void *), void *data, t_code code);
 
+//get_set.c
 void					set_int(pthread_mutex_t *mutex, int *dest, int value);
 int						get_int(pthread_mutex_t *mutex, int *value);
 long					get_long(pthread_mutex_t *mutex, long *value);
@@ -112,11 +123,18 @@ void					set_long(pthread_mutex_t *mutex, long *dest,
 							long value);
 int						simulation_finished(t_table *table);
 
+//write.c
 void					write_status(t_state code, t_philo *philo);
 
+//dinner.c
 void					*dinner_simulation(void *data);
 void					dinner_start(t_table *table);
+
+//synchro_utils.c
 void					wait_all_threads(t_table *table);
-void					clean(t_table *table);
+void					increase_long(pthread_mutex_t *mutex, long *thread);
+
+//monitoring.c
+void					*monitor_dinner(void *data);
 
 #endif

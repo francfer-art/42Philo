@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 11:19:44 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/02 16:23:29 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:32:48 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	*dinner_simulation(void *data)
 
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
+	increase_long(&philo->table->table_mutex, &philo->table->threads_number_running);
 	while (!simulation_finished(philo->table))
 	{
 		if (philo->full)
@@ -67,6 +68,7 @@ void	dinner_start(t_table *table)
 			safe_thread_handler(&table->philos[i].philo_thread_id,
 				dinner_simulation, &table->philos[i], CREATE);
 	}
+	safe_thread_handler(&table->monitor, monitor_dinner, table, CREATE);
 	table->start_simulation = get_time(MILISECOND);
 	set_int(&table->table_mutex, &table->all_threads_ready, 1);
 	i = -1;
