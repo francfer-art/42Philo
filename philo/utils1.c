@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:55:46 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/01 16:43:13 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:22:42 by francfer         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "philo.h"
 
@@ -29,7 +29,7 @@ long	get_time(t_time_code time)
 	else if (time == MILISECOND)
 		return (tv.tv_sec * 1e3 + tv.tv_usec / 1e3);
 	else if (time == MICROSECOND)
-		return ((tv.tv_sec * 1e6) + tv.tv_usec);
+		return (tv.tv_sec * 1e6 + tv.tv_usec);
 	else
 		ft_error("Wrong time code!");
 	return (42);
@@ -66,6 +66,7 @@ void	clean(t_table *table)
 	{
 		philo = table->philos + i;
 		safe_mutex_handler(&philo->philo_mutex, DESTROY);
+		i++;
 	}
 	safe_mutex_handler(&table->table_mutex, DESTROY);
 	safe_mutex_handler(&table->write_mutex, DESTROY);

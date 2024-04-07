@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:26:27 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/04 16:37:06 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:44:57 by francfer         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -129,10 +129,13 @@ void					write_status(t_state code, t_philo *philo);
 //dinner.c
 void					*dinner_simulation(void *data);
 void					dinner_start(t_table *table);
+void					thinking(t_philo *philo, int pre_simulation);
 
 //synchro_utils.c
 void					wait_all_threads(t_table *table);
 void					increase_long(pthread_mutex_t *mutex, long *thread);
+int						all_threads_running(pthread_mutex_t *mutex, long *threads, long philo_nbr);
+void					de_synchro_philos(t_philo *philo);
 
 //monitoring.c
 void					*monitor_dinner(void *data);
