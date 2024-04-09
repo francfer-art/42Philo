@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   monitoring.c                                       :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:15:33 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/07 20:13:14 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/09 13:16:39 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "philo.h"
 
@@ -32,6 +32,7 @@ void	*monitor_dinner(void *data)
 	int		i;
 
     table = (t_table *)data;
+	increase_long(&table->table_mutex, &table->threads_number_running);
 	while (!all_threads_running(&table->table_mutex, &table->threads_number_running, table->philo_numbers))
 		;
 	while (!simulation_finished(table))
@@ -39,10 +40,10 @@ void	*monitor_dinner(void *data)
 		i = -1;
 		while (++i < table->philo_numbers && !simulation_finished(table))
 		{
-			if (philo_died(table->philos + 1))
+			if (philo_died(table->philos + i))
 			{
 				set_int(&table->table_mutex, &table->end_simulation, 1);
-				write_status(DIED, table->philos + 1);
+				write_status(DIED, table->philos + i);
 			}
 		}
 	}

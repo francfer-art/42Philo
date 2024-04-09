@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   dinner.c                                           :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 11:19:44 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/07 20:44:18 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/09 13:34:13 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "philo.h"
 
@@ -52,9 +52,9 @@ void	*lone_philo(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
+	increase_long(&philo->table->table_mutex, &philo->table->threads_number_running);
 	wait_all_threads(philo->table);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, get_time(MILISECOND));
-	increase_long(&philo->table->table_mutex, &philo->table->threads_number_running);
 	write_status(TAKE_FIRST_FORK, philo);
 	while (!simulation_finished(philo->table))
 		precise_usleep(200, philo->table);
@@ -66,9 +66,9 @@ void	*dinner_simulation(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
+	increase_long(&philo->table->table_mutex, &philo->table->threads_number_running);
 	wait_all_threads(philo->table);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, get_time(MILISECOND));
-	increase_long(&philo->table->table_mutex, &philo->table->threads_number_running);
 	de_synchro_philos(philo);
 	while (!simulation_finished(philo->table))
 	{
