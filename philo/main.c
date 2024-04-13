@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:09:42 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/09 13:39:28 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/04 11:14:47 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int args, char **argv)
 	{
 		parsing_input(&table, argv);
 		data_init(&table);
-		dinne									r_start(&table);
+		dinner_start(&table);
 		clean(&table);
 	}
 	else

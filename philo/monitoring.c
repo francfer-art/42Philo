@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   monitoring.c                                       :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:15:33 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/09 13:16:39 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/13 09:55:12 by francfer         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "philo.h"
 
@@ -19,7 +19,8 @@ static int	philo_died(t_philo *philo)
 
 	if (get_int(&philo->philo_mutex, &philo->full))
 		return (0);
-	elapsed = get_time(MILISECOND) - get_long(&philo->philo_mutex, &philo->last_meal_time);
+	elapsed = get_time(MILISECOND) - get_long(&philo->philo_mutex,
+			&philo->last_meal_time);
 	t_to_die = philo->table->time_to_die / 1e3;
 	if (elapsed > t_to_die)
 		return (1);
@@ -28,15 +29,15 @@ static int	philo_died(t_philo *philo)
 
 void	*monitor_dinner(void *data)
 {
-	t_table	*table;
-	int		i;
+	int			i;
+	t_table		*table;
 
-    table = (t_table *)data;
-	increase_long(&table->table_mutex, &table->threads_number_running);
-	while (!all_threads_running(&table->table_mutex, &table->threads_number_running, table->philo_numbers))
+	table = (t_table *)data;
+	while (!all_threads_running(&table->table_mutex,
+			&table->threads_number_running, table->philo_numbers))
 		;
 	while (!simulation_finished(table))
-	{
+	{	
 		i = -1;
 		while (++i < table->philo_numbers && !simulation_finished(table))
 		{
