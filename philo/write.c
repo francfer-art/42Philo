@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 13:08:51 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/07 20:20:35 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/13 11:05:41 by francfer         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -24,12 +24,12 @@ void	write_status(t_state code, t_philo *philo)
 		&& (!simulation_finished(philo->table)))
 		printf("%ld" "  %d has taken a fork\n", elapsed, philo->id);
 	else if (code == EATING && !simulation_finished(philo->table))
-		printf("%ld" "  %d is eating\n", elapsed, philo->id);
+		printf("\033[0;34m%ld %d is eating\n\033[0m", elapsed, philo->id);
 	else if (code == SLEEPING && !simulation_finished(philo->table))
 		printf("%ld" "  %d is sleeping\n", elapsed, philo->id);
 	else if (code == THINKING && !simulation_finished(philo->table))
 		printf("%ld" "  %d is thinking\n", elapsed, philo->id);
 	else if (code == DIED)
-		printf("%ld" "  %d died\n", elapsed, philo->id);
+		printf("\033[0;31m%ld %d died\n\033[0m", elapsed, philo->id);
 	safe_mutex_handler(&philo->table->write_mutex, UNLOCK);
 }
