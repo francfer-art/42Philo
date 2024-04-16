@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   dinner.c                                           :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 11:19:44 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/13 09:53:50 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/15 12:30:52 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "philo.h"
 
@@ -97,14 +97,15 @@ void	dinner_start(t_table *table)
 			&table->philos[0], CREATE);
 	else
 		while (++i < table->philo_numbers)
-			safe_thread_handler(&table->philos[i].philo_thread_id, dinner_simulation,
-				&table->philos[i], CREATE);
+			safe_thread_handler(&table->philos[i].philo_thread_id,
+				dinner_simulation, &table->philos[i], CREATE);
 	safe_thread_handler(&table->monitor, monitor_dinner, table, CREATE);
 	table->start_simulation = get_time(MILISECOND);
 	set_int(&table->table_mutex, &table->all_threads_ready, 1);
 	i = -1;
 	while (++i < table->philo_numbers)
-		safe_thread_handler(&table->philos[i].philo_thread_id, NULL, NULL, JOIN);
+		safe_thread_handler(&table->philos[i].philo_thread_id, NULL,
+			NULL, JOIN);
 	set_int(&table->table_mutex, &table->end_simulation, 1);
 	safe_thread_handler(&table->monitor, NULL, NULL, JOIN);
 }

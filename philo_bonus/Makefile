@@ -5,22 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/19 12:48:46 by francfer          #+#    #+#              #
-#    Updated: 2024/04/16 12:30:58 by francfer         ###   ########.fr        #
+#    Created: 2024/04/16 12:30:34 by francfer          #+#    #+#              #
+#    Updated: 2024/04/16 12:51:41 by francfer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    = philo
+NAME    = philo_bonus
 CC      = gcc
-CFLAGS  = -Wall -Werror -Wextra -pthread -fsanitize=address
+CFLAGS  = -Wall -Werror -Wextra -pthread
 RM      = rm -rf
 
 GREEN   := \033[0;32m
 PINK    := \033[1;35m
 NC      := \033[0m
 
-FILES   = main.c parser.c utils.c utils1.c init.c safe_functions.c dinner.c \
-get_set.c synchro_utils.c write.c monitoring.c
+FILES   = main_bonus.c parser_bonus.c utils_bonus.c utils1_bonus.c
 OBJS    = $(FILES:.c=.o)
 
 all: $(NAME)
@@ -30,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) -o $@ $^ $(CFLAGS)
-	@echo "$(PINK)Philo ready!$(NC)"
+	@echo "$(PINK)Philo Bonus ready!$(NC)"
 
 clean:
 	@echo "$(GREEN)Cleaning...!$(NC)"

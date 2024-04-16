@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   monitoring.c                                       :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:15:33 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/13 09:55:12 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/15 12:31:37 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "philo.h"
 
@@ -37,7 +37,7 @@ void	*monitor_dinner(void *data)
 			&table->threads_number_running, table->philo_numbers))
 		;
 	while (!simulation_finished(table))
-	{	
+	{
 		i = -1;
 		while (++i < table->philo_numbers && !simulation_finished(table))
 		{

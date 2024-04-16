@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:26:27 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/13 09:56:59 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:04:40 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -134,7 +134,8 @@ void					*lone_philo(void *arg);
 //synchro_utils.c
 void					wait_all_threads(t_table *table);
 void					increase_long(pthread_mutex_t *mutex, long *thread);
-int						all_threads_running(pthread_mutex_t *mutex, long *threads, long philo_nbr);
+int						all_threads_running(pthread_mutex_t *mutex,
+							long *threads, long philo_nbr);
 void					de_synchronize_philos(t_philo *philo);
 
 //monitoring.c

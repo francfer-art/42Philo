@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 12:37:10 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/13 09:42:21 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/15 12:19:02 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "philo.h"
 
@@ -24,7 +24,7 @@ static void	assign_forks(t_philo *philo, t_fork *forks,
 	{
 		philo->first_fork = &forks[philo_position];
 		philo->second_fork = &forks[(philo_position + 1) % philo_nbr];
-	}	
+	}
 }
 
 static void	philo_init(t_table *table)

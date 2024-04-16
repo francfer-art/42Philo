@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 12:37:33 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/15 12:32:06 by francfer         ###   ########.fr       */
+/*   Created: 2024/04/16 12:34:15 by francfer          #+#    #+#             */
+/*   Updated: 2024/04/16 16:16:40 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 void	parsing_input(t_table *table, char **argv)
 {
