@@ -5,15 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 12:47:59 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/16 16:17:13 by francfer         ###   ########.fr       */
+/*   Created: 2024/04/19 16:13:11 by francfer          #+#    #+#             */
+/*   Updated: 2024/04/19 16:33:48 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	ft_error(char *error_msg)
-{
-	printf("%s\n", error_msg);
-	exit(1);
-}

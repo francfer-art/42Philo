@@ -5,16 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 11:17:23 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/16 12:08:06 by francfer         ###   ########.fr       */
+/*   Created: 2024/04/18 11:55:13 by francfer          #+#    #+#             */
+/*   Updated: 2024/04/18 11:55:43 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
+long	ft_atol(const char *str)
+{
+	long int	nb;
+	int			isneg;
+	int			i;
+
+	nb = 0;
+	isneg = 1;
+	i = 0;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		isneg *= -1;
+		i++;
+	}
+	while (is_digit(str[i]))
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nb * isneg);
+}
+
 int	is_sign(char c)
 {
-	return (c == '-' || c == '+');
+	return (c == '+' || c == '-');
 }
 
 int	is_digit(char c)
@@ -27,7 +51,7 @@ int	arg_is_number(char *str)
 	int	i;
 
 	i = 0;
-	if (is_sign(str[i] && str[i + 1]))
+	if (is_sign(str[i]) && str[i + 1])
 		i++;
 	while (str[i] && is_digit(str[i]))
 		i++;
@@ -50,28 +74,4 @@ int	is_correct_input(int args, char **argv)
 		i++;
 	}
 	return (1);
-}
-
-long	ft_atol(const char *str)
-{
-	long int	nb;
-	int			isneg;
-	int			i;
-
-	nb = 0;
-	isneg = 1;
-	i = 0;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		isneg *= -1;
-		i++;
-	}
-	while (str[i])
-	{
-		nb = (nb * 10) + (str[i] - '0');
-		i++;
-	}
-	return (nb * isneg);
 }
