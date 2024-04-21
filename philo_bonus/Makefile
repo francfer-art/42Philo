@@ -1,4 +1,4 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,9 +6,9 @@
 #    By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 12:27:12 by francfer          #+#    #+#              #
-#    Updated: 2024/04/19 16:14:30 by francfer         ###   ########.fr        #
+#    Updated: 2024/04/20 13:00:00 by francfer         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 NAME    = philo_bonus
 CC      = gcc
@@ -19,7 +19,8 @@ GREEN   := \033[0;32m
 PINK    := \033[1;35m
 NC      := \033[0m
 
-FILES   = init_bonus.c main_bonus.c utils_bonus.c utils1_bonus.c
+FILES   = init_bonus.c main_bonus.c utils_bonus.c utils1_bonus.c \
+dinner_bonus.c monitoring_bonus.c
 OBJS    = $(FILES:.c=.o)
 
 all: $(NAME)

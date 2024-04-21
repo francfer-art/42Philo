@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
@@ -6,25 +6,11 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:52:29 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/18 12:49:38 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/20 10:46:42 by francfer         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "philo_bonus.h"
-
-//int	main(int argc, char **argv)
-//{
-//	t_args		*table;
-
-//	if (checking_args_validity(argv, argc))
-//		return (1);
-//	table = init(argc, argv);
-//	if (!table)
-//		return (1);
-//	table->start_time = get_time();
-//	start_philo(table);
-//	return (0);
-//}
 
 void	print_struct(t_table *table)
 {
@@ -44,5 +30,7 @@ int	main(int args, char **argv)
 	table = init(args, argv);
 	if (!table)
 		return (1);
-	print_struct(table);
+	table->start_time = get_time();
+	start_philo(table);
+	return (0);
 }
