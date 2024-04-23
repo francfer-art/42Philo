@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   utils1_bonus.c                                     :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:13:11 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/21 10:41:10 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:11:46 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "philo_bonus.h"
 
@@ -20,28 +20,27 @@ int	get_time(void)
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-void message(t_table *table, int philo_number, t_state msg)
+void	message(t_table *table, int philo_number, t_state msg)
 {
-    sem_wait(table->sem_write);
-    if (msg == EATING)
-        printf("%d %d is eating\n", get_time() - table->start_time,
-		    philo_number);
-    else if (msg == DIED)
-        printf("\033[0;31m%d %d died\n\033[0m", get_time() - table->start_time,
-		    philo_number);
-    else if (msg == TAKE_FIRST_FORK || msg == TAKE_SECOND_FORK)
-         printf("%d %d has taken a fork\n", get_time() - table->start_time,
-		    philo_number);
-    else if (msg == THINKING)
-        printf("%d %d thinking\n", get_time() - table->start_time,
-		    philo_number);
-    else if (msg == SLEEPING)
-        printf("%d %d sleeping\n", get_time() - table->start_time,
-		    philo_number);
-    if (msg != DIED)
-        sem_post(table->sem_write);
+	sem_wait(table->sem_write);
+	if (msg == EATING)
+		printf("%d %d is eating\n", get_time() - table->start_time,
+			philo_number);
+	else if (msg == DIED)
+		printf("\033[0;31m%d %d died\n\033[0m", get_time() - table->start_time,
+			philo_number);
+	else if (msg == TAKE_FIRST_FORK || msg == TAKE_SECOND_FORK)
+		printf("%d %d has taken a fork\n", get_time() - table->start_time,
+			philo_number);
+	else if (msg == THINKING)
+		printf("%d %d thinking\n", get_time() - table->start_time,
+			philo_number);
+	else if (msg == SLEEPING)
+		printf("%d %d sleeping\n", get_time() - table->start_time,
+			philo_number);
+	if (msg != DIED)
+		sem_post(table->sem_write);
 }
-
 
 void	close_processes(t_table *table)
 {

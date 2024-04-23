@@ -6,13 +6,13 @@
 #    By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 12:48:46 by francfer          #+#    #+#              #
-#    Updated: 2024/04/16 12:30:58 by francfer         ###   ########.fr        #
+#    Updated: 2024/04/22 15:32:40 by francfer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    = philo
-CC      = gcc
-CFLAGS  = -Wall -Werror -Wextra -pthread -fsanitize=address
+CC      = gcc -g
+CFLAGS  = -Wall -Werror -Wextra -pthread -fsanitize=thread
 RM      = rm -rf
 
 GREEN   := \033[0;32m

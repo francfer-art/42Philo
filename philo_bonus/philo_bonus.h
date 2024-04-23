@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.h                                      :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:41:19 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/21 07:13:54 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:12:02 by francfer         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef PHILO_BONUS_H
 # define PHILO_BONUS_H
@@ -61,30 +61,30 @@ typedef struct s_table
 	pthread_t			monitor_meal;
 }						t_table;
 
-//utils_bonus.c
+// utils_bonus.c
 int						is_sign(char c);
 int						is_digit(char c);
 int						arg_is_number(char *str);
 int						is_correct_input(int args, char **argv);
 long					ft_atol(const char *str);
 
-//init_bonus.c
+// init_bonus.c
 t_table					*init(int args, char **argv);
 int						semaphores_init(t_table *table);
 t_philo					**philo_init(t_table *table);
 
-//utils1_bonus.c
-int 					get_time(void);
+// utils1_bonus.c
+int						get_time(void);
 void					message(t_table *table, int philo_number, t_state msg);
 void					close_processes(t_table *table);
 void					ft_usleep(int time_in_ms);
-//dinner_bonus.c
-void    				start_philo(t_table *table);
-void    				*routine(t_philo *philo);
-void    				take_fork(t_philo *philo);
+// dinner_bonus.c
+void					start_philo(t_table *table);
+void					*routine(t_philo *philo);
+void					take_fork(t_philo *philo);
 
-//monitoring_bonus.c
-void    				*monitor_meal(void *data);
+// monitoring_bonus.c
+void					*monitor_meal(void *data);
 void					*monitor_die(void *data);
 
 #endif
