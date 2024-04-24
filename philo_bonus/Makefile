@@ -6,13 +6,13 @@
 #    By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 12:27:12 by francfer          #+#    #+#              #
-#    Updated: 2024/04/22 13:53:55 by francfer         ###   ########.fr        #
+#    Updated: 2024/04/24 16:25:27 by francfer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    = philo_bonus
 CC      = gcc -g
-CFLAGS  = -Wall -Werror -Wextra -pthread -fsanitize=address
+CFLAGS  = -Wall -Werror -Wextra -pthread
 RM      = rm -rf
 
 GREEN   := \033[0;32m

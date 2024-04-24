@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 11:51:32 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/15 12:32:36 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:08:13 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	de_synchronize_philos(t_philo *philo)
 	if (philo->table->philo_numbers % 2 == 0)
 	{
 		if (philo->id % 2 == 0)
-			precise_usleep(3e4, philo->table);
+			precise_usleep(10, philo->table);
 	}
 	else
 	{

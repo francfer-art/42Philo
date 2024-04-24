@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 11:19:44 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/15 12:30:52 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:03:47 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,7 @@ void	dinner_start(t_table *table)
 	int			i;
 
 	i = -1;
-	if (0 == table->limits_of_meals)
-		return ;
-	else if (1 == table->philo_numbers)
+	if (table->philo_numbers == 1)
 		safe_thread_handler(&table->philos[0].philo_thread_id, lone_philo,
 			&table->philos[0], CREATE);
 	else

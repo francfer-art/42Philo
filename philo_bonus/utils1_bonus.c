@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:13:11 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/22 17:11:46 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:27:28 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,23 @@ void	message(t_table *table, int philo_number, t_state msg)
 
 void	close_processes(t_table *table)
 {
-	int	i;
-	int	status;
+	int		i;
+	int		status;
+	pid_t	pids[1024];
 
-	i = 0;
+	i = -1;
 	waitpid(-1, &status, 0);
 	if (WIFEXITED(status) || WIFSIGNALED(status))
 	{
-		while (i < table->philo_amount)
-			kill(table->philos[i++]->philo_pid, SIGKILL);
+		while (++i < table->philo_amount)
+		{
+			pids[i] = table->philos[i]->philo_pid;
+			free(table->philos[i]);
+			kill(pids[i], SIGKILL);
+		}
 	}
+	free(table->philos);
+	free(table);
 }
 
 void	ft_usleep(int time_in_ms)

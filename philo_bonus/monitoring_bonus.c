@@ -6,7 +6,7 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 11:38:24 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/22 17:10:44 by francfer         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:08:16 by francfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,15 @@ void	*monitor_meal(void *data)
 	eat_counter = 0;
 	while (eat_counter < table->meal_amount)
 	{
-		i = 0;
-		while (i <= table->philo_amount)
-		{
+		i = -1;
+		while (++i <= table->philo_amount)
 			sem_wait(table->sem_meal);
-			i++;
-		}
 		eat_counter++;
 	}
 	sem_wait(table->sem_write);
-	i = 0;
-	while (i < table->philo_amount)
-		kill(table->philos[i++]->philo_pid, SIGKILL);
+	i = -1;
+	while (++i < table->philo_amount)
+		kill(table->philos[i]->philo_pid, SIGKILL);
 	return (NULL);
 }
 
