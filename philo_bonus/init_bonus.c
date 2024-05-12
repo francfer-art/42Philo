@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: francfer <francfer@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:58:31 by francfer          #+#    #+#             */
-/*   Updated: 2024/04/22 17:10:11 by francfer         ###   ########.fr       */
+/*   Updated: 2024/05/12 20:36:03 by francfer         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "philo_bonus.h"
 
@@ -67,7 +67,7 @@ t_table	*init(int argc, char **argv)
 	table->time_to_eat = ft_atol(argv[3]);
 	table->time_to_sleep = ft_atol(argv[4]);
 	if (table->philo_amount <= 0 || table->time_to_die <= 0
-		|| table->time_to_eat == -1 || table->time_to_sleep <= 0)
+		|| table->time_to_eat <= 0 || table->time_to_sleep <= 0)
 		return (printf("Error: Invalid Arguments\n"), NULL);
 	table->meal_amount = 0;
 	if (argc == 6)
